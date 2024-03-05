@@ -105,12 +105,12 @@ jobs:
           cache-to: type=gha,mode=max
           file: Dockerfile.prod
 
-  # cd:
-  #   needs: ci
-  #   runs-on: ubuntu-latest
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
 
-  #   if: ${{ github.event_name != 'pull_request' }}
+    if: ${{ github.event_name != 'pull_request' }}
 
-  #   steps:
-  #     - name: show version
-  #       run: echo ${{ needs.ci.outputs.new_version }}
+    steps:
+      - name: show version
+        run: echo ${{ needs.ci.outputs.new_version }}
