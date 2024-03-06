@@ -115,7 +115,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: manscalh/app-gateway:${{ steps.tagging.outputs.new_tag }}
+          tags: manscalh/app-gateway:latest
 
   cd:
     needs: ci
