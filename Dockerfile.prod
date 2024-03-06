@@ -13,39 +13,39 @@ COPY --chown=node:node . .
 
 EXPOSE 3000
 
-CMD [ "npm", "run", "start:prod" ]
-
-# CMD [ "tail", "-f", "/dev/null" ]
-
-# FROM node:20.11-slim as builder
-
-# USER node
-
-# RUN mkdir /home/node/app_gateway
-
-# WORKDIR /home/node/app_gateway
-
-# COPY --chown=node:node --from=development /home/node/app_gateway ./
-# RUN npm run build
-
-# ENV NODE_ENV production
-
-# RUN npm ci --only=production
-
-# FROM node:20.11-slim as production
-
-# USER node
-
-# RUN mkdir /home/node/app_gateway
-
-# WORKDIR /home/node/app_gateway
-
-# COPY --chown=node:node --from=builder /home/node/app_gateway/dist ./dist
-# COPY --chown=node:node --from=builder /home/node/app_gateway/node_modules ./node_modules
-# COPY --chown=node:node --from=builder /home/node/app_gateway/package.json ./
-
-# EXPOSE 3000
-
-# ENV NODE_ENV production
-
 # CMD [ "npm", "run", "start:prod" ]
+
+CMD [ "tail", "-f", "/dev/null" ]
+
+FROM node:20.11-slim as builder
+
+USER node
+
+RUN mkdir /home/node/app_gateway
+
+WORKDIR /home/node/app_gateway
+
+COPY --chown=node:node --from=development /home/node/app_gateway ./
+RUN npm run build
+
+ENV NODE_ENV production
+
+RUN npm ci --only=production
+
+FROM node:20.11-slim as production
+
+USER node
+
+RUN mkdir /home/node/app_gateway
+
+WORKDIR /home/node/app_gateway
+
+COPY --chown=node:node --from=builder /home/node/app_gateway/dist ./dist
+COPY --chown=node:node --from=builder /home/node/app_gateway/node_modules ./node_modules
+COPY --chown=node:node --from=builder /home/node/app_gateway/package.json ./
+
+EXPOSE 3000
+
+ENV NODE_ENV production
+
+CMD [ "npm", "run", "start:prod" ]
