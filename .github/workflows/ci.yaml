@@ -151,7 +151,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         run: |
           cd k8s
-          kustomize edit set image app-gateway=$DOCKERHUB_USERNAME/app-gateway:${{ github.sha }}
+          kustomize edit set image app-gateway=${{ secrets.DOCKERHUB_USERNAME }}/app-gateway:${{ github.sha }}
 
       - name: Commit
         run: |
