@@ -109,6 +109,12 @@ jobs:
   cd:
     needs: ci
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
 
     if: ${{ github.event_name != 'pull_request' }}
 
@@ -130,6 +136,7 @@ jobs:
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/app-gateway
           tags: ${{ github.sha }}, latest
           file: Dockerfile.prod
+          dockerfile: Dockerfile.prod
 
       - name: Setup kustomize
         uses: imranismail/setup-kustomize@v1
