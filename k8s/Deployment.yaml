@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: app-gateway
-        image: manscalh/app-gateway:alfa
+        image: manscalh/app-gateway
         imagePullPolicy: Always
         resources:
         ports:
