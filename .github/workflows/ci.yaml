@@ -105,6 +105,15 @@ jobs:
           cache-to: type=gha,mode=max
           file: Dockerfile.prod
 
+
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    if: ${{ github.event_name != 'pull_request' }}
+
+    steps:
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
@@ -116,18 +125,12 @@ jobs:
         with:
           context: .
           push: true
-          tags: manscalh/app-gateway:latest,${{ github.sha }}, latest
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/app-gateway
+          tags: ${{ github.sha }}, latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           file: Dockerfile.prod
 
-  cd:
-    needs: ci
-    runs-on: ubuntu-latest
-
-    if: ${{ github.event_name != 'pull_request' }}
-
-    steps:
       - name: Setup kustomize
         uses: imranismail/setup-kustomize@v1
         with:
