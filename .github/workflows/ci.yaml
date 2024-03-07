@@ -163,7 +163,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: pos-uea-manscalh/app-gateway
+          repository: pos-uea-manscalh/ms-gateway
 
       - name: show version
         run: echo ${{ needs.ci.outputs.new_version }}
