@@ -153,6 +153,17 @@ jobs:
           cd k8s
           kustomize edit set image app-gateway=$DOCKERHUB_USERNAME/app-gateway:${{ github.sha }}
 
+      - name: Commit
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -am "Bump docker version"
+
+      - name: Push 
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: pos-uea-manscalh/app-gateway
 
       - name: show version
         run: echo ${{ needs.ci.outputs.new_version }}
