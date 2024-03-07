@@ -9,4 +9,4 @@ spec:
   ports:
   - port: 8000        #SERVICE URL
     targetPort: 3000  #CONTAINER
-    nodePort: 31552   #CLUSTER
+    nodePort: 30001   #CLUSTER
