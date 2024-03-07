@@ -116,7 +116,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: manscalh/app-gateway:latest
+          tags: manscalh/app-gateway:latest,${{ github.sha }}, latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
           file: Dockerfile.prod
