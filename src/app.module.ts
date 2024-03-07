@@ -15,7 +15,7 @@ import { AuthModule } from './auth/auth.module';
   imports: [
     AuthModule,
     ConfigModule.forRoot({
-      envFilePath: '.env', 
+      envFilePath: process.env.NODE_ENV === 'production' ? '.env.production':'.env.development',
       isGlobal: true
     }),
     ProxyRMQModule,
