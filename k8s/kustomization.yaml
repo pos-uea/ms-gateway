@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
 - Deployment.yaml
+- Deployment-beta.yaml
 - Service.yaml
 
 images:
