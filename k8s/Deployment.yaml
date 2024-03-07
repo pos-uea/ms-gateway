@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-gateway-alfa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-gateway
+  template:
+    metadata:
+      labels:
+        app: app-gateway
+        version: alfa
+    spec:
+      containers:
+      - name: app-gateway
+        image: app-gateway
+        imagePullPolicy: Always
+        resources:
+        ports:
+        - containerPort: 3000

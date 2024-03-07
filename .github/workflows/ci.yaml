@@ -138,7 +138,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           cd k8s
-          kustomize edit set image goserver=$DOCKER_USERNAME/app-gateway:${{ github.sha }}
+          kustomize edit set image app-gateway=$DOCKER_USERNAME/app-gateway:${{ github.sha }}
 
 
       - name: show version
