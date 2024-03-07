@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: app-gateway-dr
+spec:
+  host: app-gateway-service
+  trafficPolicy:
+    # loadBalancer:
+    #   simple: RANDOM
+    outlierDetection:
+      consecutiveErrors: 1
+      interval: 1s
+      baseEjectionTime: 3m
+      maxEjectionPercent: 100
+  subsets:
+    - name: v1
+      labels:
+        version: alfa
+      trafficPolicy:
+        loadBalancer:
+          simple: LEAST_CONN
+    - name: v2
+      labels:
+        version: beta
