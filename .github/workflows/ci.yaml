@@ -129,12 +129,12 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push image to Dockerhub
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v1.1.0
         with:
-          push: true
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/app-gateway
           tags: ${{ github.sha }}, latest
-          file: Dockerfile.prod
           dockerfile: Dockerfile.prod
 
       - name: Setup kustomize
