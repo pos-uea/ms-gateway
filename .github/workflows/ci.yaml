@@ -124,10 +124,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push image to Dockerhub
-        uses: docker/build-push-action@v1.1.0
+        uses: docker/build-push-action@v5
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          push: true
           repository: ${{ secrets.DOCKERHUB_USERNAME }}/app-gateway
           tags: ${{ github.sha }}, latest
           file: Dockerfile.prod
