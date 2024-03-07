@@ -128,5 +128,18 @@ jobs:
     if: ${{ github.event_name != 'pull_request' }}
 
     steps:
+      - name: Setup kustomize
+        uses: imranismail/setup-kustomize@v1
+        with:
+          kustomize-version: "3.6.1"
+
+      - name: Update Kubernetes resources
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        run: |
+          cd k8s
+          kustomize edit set image goserver=$DOCKER_USERNAME/app-gateway:${{ github.sha }}
+
+
       - name: show version
         run: echo ${{ needs.ci.outputs.new_version }}
