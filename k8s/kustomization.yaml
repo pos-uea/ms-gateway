@@ -6,5 +6,5 @@ resources:
 
 images:
 - name: app-gateway
-  newName: manscalh/app-gateway
-  newTag: Deusehmais
+  newName: /app-gateway
+  newTag: cce1cecd10304736f7c90ee1589db54722a30751
