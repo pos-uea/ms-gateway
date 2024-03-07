@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-gateway-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: app-gateway
+  ports:
+  - port: 8000        #SERVICE URL
+    targetPort: 3000  #CONTAINER
+    nodePort: 31552   #CLUSTER
