@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-gateway-beta
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-gateway
+  template:
+    metadata:
+      labels:
+        app: app-gateway
+        version: beta
+    spec:
+      containers:
+      - name: app-gateway
+        image: "manscalh/app-gateway:beta"
+        imagePullPolicy: Always
+        resources:
+        ports:
+        - containerPort: 3000
