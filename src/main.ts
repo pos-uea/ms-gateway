@@ -16,7 +16,7 @@ async function bootstrap() {
   app.useGlobalFilters(new AllExceptionsFilter());
 
   await app.listen(3000).then(() => {
-    console.log('API Gateway is running on port 3000',process.env.NODE_ENV);
+    console.log('API Gateway is running on port 3000',process.env.NODE_ENV, process.env.RMQ_URL);
   })
 
 }
