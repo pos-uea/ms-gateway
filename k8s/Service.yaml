@@ -7,6 +7,6 @@ spec:
   selector:
     app: app-gateway
   ports:
-  - port: 3000        #SERVICE URL
+  - port: 8000        #SERVICE URL
     targetPort: 3000  #CONTAINER
-    nodePort: 31066   #CLUSTER
+    nodePort: 30001   #CLUSTER

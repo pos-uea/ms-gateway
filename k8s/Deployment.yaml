@@ -11,11 +11,11 @@ spec:
     metadata:
       labels:
         app: app-gateway
-        version: alfa
+        version: latest
     spec:
       containers:
       - name: app-gateway
-        image: manscalh/app-gateway:alfa
+        image: manscalh/app-gateway:latest
         imagePullPolicy: Always
         resources:
         ports:
