@@ -5,7 +5,7 @@ import { ValidacaoParametrosPipe } from 'src/common/pipes/validacao-parametros.p
 import { AuthGuard } from 'src/auth/auth.guard';
 import { CheckIsAdminGuard } from 'src/auth/check-is-admin.guard';
 
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 @Controller('api/sensors')
 export class SensorsController {
 
