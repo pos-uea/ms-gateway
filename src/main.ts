@@ -15,6 +15,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggingInterceptor(), new timeoutInterceptor());
   app.useGlobalFilters(new AllExceptionsFilter());
 
+  app.enableCors();
+
   await app.listen(3000).then(() => {
     console.log('API Gateway is running on port 3000',process.env.NODE_ENV, process.env.RMQ_URL);
   })
