@@ -1,0 +1,12 @@
+---
+applications:
+      - name: api-gateway
+        docker:
+          image: manscalh/app-gateway:latest  
+          username: manscalh
+        instances: 3
+        memory: 128MB
+        disk_quota: 1GB
+        health-check-type: none
+
+ 

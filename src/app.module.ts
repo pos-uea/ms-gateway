@@ -10,6 +10,7 @@ import { GatewaysModule } from './gateways/gateways.module';
 import { GatewaysAdminModule } from './gateways_admin/gateways_admin.module';
 import { NotificationsAdminModule } from './notifications_admin/notifications_admin.module';
 import { AuthModule } from './auth/auth.module';
+import { ReportsModule } from './reports/reports.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
     GatewaysModule,
     GatewaysAdminModule,
     NotificationsAdminModule,
+    ReportsModule,
   ],
   controllers: [UsersController],
   providers: [ClientProxyRadioFrequency],

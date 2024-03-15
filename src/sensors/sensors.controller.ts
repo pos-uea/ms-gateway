@@ -53,5 +53,4 @@ export class SensorsController {
         return this.dominioSensors.send('get-sensor-by-id', _id).toPromise();
     }
 
-
 }
