@@ -10,13 +10,13 @@ export class ReportsController {
         private clientProxyRadioFrequency: ClientProxyRadioFrequency,
     ) { }
 
-    private dominioSensors = this.clientProxyRadioFrequency.getClientProxyDominioSensorsInstance();
+    private dominioReports = this.clientProxyRadioFrequency.getClientProxyDominioReportInstance();
 
 
     @Get()
     async getReports(){
         this.logger.log(`reports GET`);
-        return this.dominioSensors.send('get-reports', {}).toPromise();
+        return this.dominioReports.send('get-reports', {}).toPromise();
     }
 
 }

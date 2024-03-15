@@ -45,4 +45,15 @@ export class ClientProxyRadioFrequency {
             }
         })
     }
+
+    getClientProxyDominioReportInstance(): ClientProxy {
+      
+        return ClientProxyFactory.create({
+            transport: Transport.RMQ,
+            options: {
+                urls: [`${this.protocol}://${this.user}:${this.password}@${this.host}`],
+                queue: 'reports'
+            }
+        })
+    }
 }
