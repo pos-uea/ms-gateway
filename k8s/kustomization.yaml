@@ -11,4 +11,4 @@ resources:
 images:
 - name: app-gateway
   newName: manscalh/app-gateway
-  newTag: 61ef7b0ba4d47a78ce49b68397c2f6285d36ef7c
+  newTag: f36142390556f14e78fa7fa748792030168ebf11
