@@ -9,6 +9,7 @@ services:
     restart: on-failure
     ports:
       - 3000:3000
+      - 443:443
     volumes:
       - '/etc/timezone:/etc/timezone:ro'
       - '/etc/localtime:/etc/localtime:ro'
