@@ -6,7 +6,6 @@ import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 import { timeoutInterceptor } from './common/interceptors/timeout.interceptor';
 import * as fs from 'fs';
 
-
 async function bootstrap() {
 
   await tracer;
@@ -15,8 +14,9 @@ async function bootstrap() {
     key: fs.readFileSync('./src/cert/key.pem'),
     cert: fs.readFileSync('./src/cert/cert.pem'),
   };
+
   
-  const app = await NestFactory.create(AppModule,{ httpsOptions },);
+  const app = await NestFactory.create(AppModule,{httpsOptions});
   
   app.useGlobalInterceptors(new LoggingInterceptor(), new timeoutInterceptor());
   app.useGlobalFilters(new AllExceptionsFilter());
